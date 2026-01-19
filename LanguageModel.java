@@ -128,7 +128,7 @@ public class LanguageModel {
         int generatedTextLength = Integer.parseInt(args[2]);
         boolean randomGeneration = args[3].equals("random");
         String fileName = args[4];
-
+        
         // Create the LanguageModel object
         LanguageModel lm;
         if (randomGeneration)

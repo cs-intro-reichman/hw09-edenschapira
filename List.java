@@ -127,18 +127,30 @@ public class List {
         return arr;
     }
 
-    /** Returns an iterator over the elements in this list, starting at the given index. */
-    public ListIterator listIterator(int index) {
-	    // If the list is empty, there is nothing to iterate   
-	    if (size == 0) return null;
-	    // Gets the element in position index of this list
-	    Node current = first;
-	    int i = 0;
-        while (i < index) {
+    // /** Returns an iterator over the elements in this list, starting at the given index. */
+    // public ListIterator listIterator(int index) {
+	//     // If the list is empty, there is nothing to iterate   
+	//     if (size == 0) return null;
+	//     // Gets the element in position index of this list
+	//     Node current = first;
+	//     int i = 0;
+    //     while (i < index) {
+    //         current = current.next;
+    //         i++;
+    //     }
+    //     // Returns an iterator that starts in that element
+	//     return new ListIterator(current);
+    // }
+
+    public ListIterator listIterator(int index){
+        Node current = first;
+        int i = 0;
+        while (i < index && current != null){
             current = current.next;
             i++;
         }
-        // Returns an iterator that starts in that element
-	    return new ListIterator(current);
+        return new ListIterator(current);
     }
+
+
 }
