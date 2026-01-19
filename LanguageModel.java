@@ -100,14 +100,16 @@ public class LanguageModel {
         }
         String generatedText = initialText;
         String window = initialText.substring(initialText.length() - windowLength);
-        while (generatedText.length() < textLength){
+        int count = 0;
+        while (count < textLength){
             List probs = CharDataMap.get(window);
             if (probs == null){
-                break;
+                return generatedText;
             }
             char nextChar = getRandomChar(probs);
             generatedText += nextChar;
             window = generatedText.substring(generatedText.length() - windowLength);
+            count++;
         }
         return generatedText;
 	}
